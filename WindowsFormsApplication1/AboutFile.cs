@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
                 GetFileInfo(file.FileName);
             }
         }
-
+        //МОЖНО СИНХРОНИЗИРОВАТЬ 
         private void GetFileInfo(string fileName)
         {
             listBox1.Items.Clear();
