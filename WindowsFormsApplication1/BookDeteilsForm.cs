@@ -13,9 +13,9 @@ namespace WindowsFormsApplication1
 {
     public partial class BookDeteilsForm : Form
     {
-        public BookDeteil bd { get; set; }
+        public BookDetail bd { get; set; }
 
-        public BookDeteilsForm(BookDeteil bd)
+        public BookDeteilsForm(BookDetail bd)
         {
             this.bd = bd;
             InitializeComponent();

@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
                 Delivery = DeliveryData.Value,
                 FullName = FullNameBox.Text,
                 Addres = AdressBox.Text,
-                BookDeteils = BookList.Items.OfType<BookDeteil>().ToList()
+                BookDetails = BookList.Items.OfType<BookDetail>().ToList(),
             };
         }
 
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
             FullNameBox.Text = dto.FullName;
             AdressBox.Text = dto.Addres;
             BookList.Items.Clear();
-            foreach (var item in dto.BookDeteils)
+            foreach (var item in dto.BookDetails)
                 BookList.Items.Add(item);
         }
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
 
         private void PlusB_Click(object sender, EventArgs e)
         {
-            BookDeteilsForm bdf = new BookDeteilsForm(new BookDeteil());
+            BookDeteilsForm bdf = new BookDeteilsForm(new BookDetail());
             var result = bdf.ShowDialog(this);
             if (result == DialogResult.OK)
             {
@@ -83,7 +83,7 @@ namespace WindowsFormsApplication1
             var dto = GetModelfromUI();
             decimal TotalPrice = 0;
             TotalPrice = 0;
-                foreach (var genre in dto.BookDeteils)
+                foreach (var genre in dto.BookDetails)
                 {
                     switch (genre.Genre)
                     {
@@ -122,10 +122,10 @@ namespace WindowsFormsApplication1
         private void BookList_SelectedIndexChanged(object sender, EventArgs e)
         {
             MinusB.Enabled = true;
-            var bkl = BookList.SelectedItem as BookDeteil;
+            var bkl = BookList.SelectedItem as BookDetail;
             if (bkl == null)
                 return;
-            var form = new BookDeteilsForm(bkl.Clone());
+            var form = new BookDeteilsForm(bkl);
             var result = form.ShowDialog(this);
             if (result == DialogResult.OK)
             {
@@ -145,6 +145,23 @@ namespace WindowsFormsApplication1
             var si = BookList.SelectedIndex;
             BookList.Items.RemoveAt(si);
             RecalculatePrice();
+        }
+
+        private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About form = new About();
+            var opn = form.ShowDialog(this);
+        }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutFile form = new AboutFile();
+            var opn = form.ShowDialog(this);
         }
     }
 

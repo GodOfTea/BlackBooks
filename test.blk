@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<BookRequestDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Filled>2018-05-21T19:44:03.9174249+05:00</Filled>
+  <Delivery>2018-05-25T19:44:03</Delivery>
+  <FullName>Я</FullName>
+  <BookDetails>
+    <BookDetail>
+      <Title>Он</Title>
+      <Genre>Tale</Genre>
+      <Author>Я</Author>
+      <Price>49</Price>
+    </BookDetail>
+    <BookDetail>
+      <Title />
+      <Genre>Tale</Genre>
+      <Author />
+      <Price>49</Price>
+    </BookDetail>
+  </BookDetails>
+  <Addres>Туда</Addres>
+  <Price>98</Price>
+  <Currency>Rubles</Currency>
+</BookRequestDto>

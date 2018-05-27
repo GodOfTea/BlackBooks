@@ -26,7 +26,7 @@ namespace BlackBooks
         /// <summary>
         /// Названия книг
         /// </summary>
-        public List<BookTitle> BookTitles { get; set; }
+        public List<BookDetail> BookDetails { get; set; }
         /// <summary>
         /// Адрес
         /// </summary>
@@ -41,44 +41,36 @@ namespace BlackBooks
         public Currency Currency { get; set; }
     }
     /// <summary>
-    /// Информация о названиях
-    /// </summary>
-    public class BookDeteil
-    {
-        /// <summary>
-        /// Книга
-        /// </summary>
-        public List<BookDetails> Book { get; set; }
-    }
-    /// <summary>
     /// Информация о книге
     /// </summary>
-    public class BookDetails
+    public class BookDetail
     {
         /// <summary>
         /// Название книги
         /// </summary>
         public string Title { get; set; }
         /// <summary>
-        /// Автор книги
+        /// Жанр
         /// </summary>
         public Genre Genre {get;set;}
         /// <summary>
-        /// Количество страниц
+        /// Автор книги
         /// </summary>
-        public int PagesNumber { get; set; }
+        public string Author { get; set; }
         /// <summary>
         /// Цена
         /// </summary>
         public double Price { get; set; }
-        /// <summary>
-        /// Возрастное ограничение
-        /// </summary>
-        public AgeLimit AgeLimit { get; set; }
-        /// <summary>
-        /// Наличие
-        /// </summary>
-        public bool Presence { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0} | {1} | {2} | {3}", Title, Author, Genre.ToString(), Price);
+        }
+
+        public BookDetail Clone()
+        {
+            return new BookDetail { Title = Title, Author = Author, Genre = Genre, Price = Price };
+        }
     }
     
 

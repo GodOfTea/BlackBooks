@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutFile.Designer.cs">
+      <DependentUpon>AboutFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewFile.Designer.cs">
+      <DependentUpon>CreateNewFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +84,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutFile.resx">
+      <DependentUpon>AboutFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewFile.resx">
+      <DependentUpon>CreateNewFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
