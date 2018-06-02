@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace BlackBooks
@@ -20,6 +21,11 @@ namespace BlackBooks
             {
                 return (BookRequestDto)Xs.Deserialize(fileStream);
             }
+        }
+
+        public static object LoadFromFile(Stream file)
+        {
+            return (BookRequestDto)Xs.Deserialize(file);
         }
     }
 }

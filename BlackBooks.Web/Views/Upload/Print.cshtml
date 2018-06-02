@@ -1,0 +1,15 @@
+﻿@model BlackBooks.BookRequestDto
+
+@{
+    ViewBag.Title = "Print";
+}
+
+<h2>Print</h2>
+
+@foreach (var bd in Model.BookDetails)
+{
+    <div>@"Книга " + bd.Title</div>
+    <div>@"Автор " + bd.Author</div>
+    <div>@"Жанр " + bd.Genre</div>
+    <div>@"Цена " + bd.Price</div>
+}
