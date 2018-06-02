@@ -6,10 +6,50 @@
 
 <h2>Print</h2>
 
-@foreach (var bd in Model.BookDetails)
-{
-    <div>@"Книга " + bd.Title</div>
-    <div>@"Автор " + bd.Author</div>
-    <div>@"Жанр " + bd.Genre</div>
-    <div>@"Цена " + bd.Price</div>
-}
+<div><p>Дата заполнения</p><p>@Model.Filled</p></div>
+<div><p>Цена</p><p>@Model.Price рублей</p></div>
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            Название книги
+       </th>
+        <th>
+            Автор
+        </th>
+        <th>
+            Жанр
+        </th>
+    </tr>
+    <tbody>
+        @foreach (var bd in Model.BookDetails)
+        {
+            <div></div>
+            <tr>
+                <td style="border:1px solid black">
+                    <fieldset>
+                        <b>
+                            @bd.Title
+                        </b>
+                    </fieldset>
+                </td>
+
+                <td style="border:1px solid black">
+                    <fieldset>
+                        <b>
+                            @bd.Author
+                        </b>
+                    </fieldset>
+                </td>
+
+                <td style="border:1px solid black">
+                    <fieldset>
+                        <b>
+                            @bd.Genre
+                        </b>
+                    </fieldset>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

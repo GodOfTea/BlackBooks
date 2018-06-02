@@ -1,0 +1,108 @@
+﻿@model BlackBooks.Web.Models.DbBookRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DbRideRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Filled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Addres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Addres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>
+            Название книги
+        </th>
+        <th>
+            Автор
+        </th>
+        <th>
+            Жанр
+        </th>
+    </tr>
+    <tbody>
+
+        @foreach (var wp in Model.BookDetails)
+        {
+            <div></div>
+
+            <tr>
+
+                <td style="border:1px solid black">
+
+                    <fieldset>
+                        <b>
+                            @wp.Title
+                        </b>
+                    </fieldset>
+                </td>
+                <td style="border:1px solid black">
+                    <fieldset>
+                        <b>
+                            @wp.Author
+                        </b>
+                    </fieldset>
+                </td>
+                <td style="border:1px solid black">
+                    <fieldset>
+                        <b>
+                            @wp.Genre
+                        </b>
+                    </fieldset>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

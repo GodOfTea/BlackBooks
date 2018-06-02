@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<BookRequestDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Filled>2018-06-02T16:22:01.4174281+05:00</Filled>
+  <Delivery>2018-06-02T16:22:01.4114277+05:00</Delivery>
+  <FullName>God</FullName>
+  <BookDetails>
+    <BookDetail>
+      <Title>Автостопом по галактике</Title>
+      <Genre>Fiction</Genre>
+      <Author>Дуглас Адамс</Author>
+      <Price>119</Price>
+    </BookDetail>
+    <BookDetail>
+      <Title>Сотников</Title>
+      <Genre>Biography</Genre>
+      <Author>Быков</Author>
+      <Price>199</Price>
+    </BookDetail>
+    <BookDetail>
+      <Title>Как круто рисовать комиксы</Title>
+      <Genre>Comics</Genre>
+      <Author>Стэн Ли</Author>
+      <Price>99</Price>
+    </BookDetail>
+    <BookDetail>
+      <Title>Ведьмак</Title>
+      <Genre>Fantasy</Genre>
+      <Author>Анджей Сапковский</Author>
+      <Price>299</Price>
+    </BookDetail>
+  </BookDetails>
+  <Addres>Заполните адрес</Addres>
+  <Price>716</Price>
+  <Currency>Rubles</Currency>
+</BookRequestDto>

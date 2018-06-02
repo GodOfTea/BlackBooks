@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DbBookRequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -268,6 +269,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Upload\Print.cshtml" />
+    <Content Include="Views\DbBookRequests\Create.cshtml" />
+    <Content Include="Views\DbBookRequests\Delete.cshtml" />
+    <Content Include="Views\DbBookRequests\Details.cshtml" />
+    <Content Include="Views\DbBookRequests\Edit.cshtml" />
+    <Content Include="Views\DbBookRequests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

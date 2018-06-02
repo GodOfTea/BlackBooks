@@ -23,7 +23,7 @@ namespace BlackBooks
             }
         }
 
-        public static object LoadFromFile(Stream file)
+        public static BookRequestDto LoadFromStream(Stream file)
         {
             return (BookRequestDto)Xs.Deserialize(file);
         }
