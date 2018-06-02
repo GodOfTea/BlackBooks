@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{C72CA342-FF32-419B-BF4D-3DC8B13AF42A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "License", "License\License.csproj", "{BE720A66-7CEE-4FCD-ABBA-FEF07A9D9B2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C72CA342-FF32-419B-BF4D-3DC8B13AF42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C72CA342-FF32-419B-BF4D-3DC8B13AF42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C72CA342-FF32-419B-BF4D-3DC8B13AF42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE720A66-7CEE-4FCD-ABBA-FEF07A9D9B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE720A66-7CEE-4FCD-ABBA-FEF07A9D9B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE720A66-7CEE-4FCD-ABBA-FEF07A9D9B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE720A66-7CEE-4FCD-ABBA-FEF07A9D9B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
