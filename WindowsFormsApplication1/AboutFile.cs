@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         public AboutFile()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,10 +28,10 @@ namespace WindowsFormsApplication1
                 GetFileInfo(file.FileName);
             }
         }
-        //МОЖНО СИНХРОНИЗИРОВАТЬ 
         private void GetFileInfo(string fileName)
         {
             listBox1.Items.Clear();
+            pictureBox1.Image = null;
             FileInfo info = new FileInfo(fileName);
 
             label1.Text = "Время создания - " + info.CreationTime.ToString();

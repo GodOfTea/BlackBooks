@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SaveB = new System.Windows.Forms.Button();
             this.OpenB = new System.Windows.Forms.Button();
             this.BookList = new System.Windows.Forms.ListBox();
@@ -46,15 +47,30 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.базаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserName = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domainDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ExcelB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PriceNum)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domainDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveB
             // 
             this.SaveB.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.SaveB.Location = new System.Drawing.Point(301, 532);
+            this.SaveB.Location = new System.Drawing.Point(620, 375);
             this.SaveB.Name = "SaveB";
             this.SaveB.Size = new System.Drawing.Size(95, 34);
             this.SaveB.TabIndex = 0;
@@ -65,7 +81,7 @@
             // OpenB
             // 
             this.OpenB.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.OpenB.Location = new System.Drawing.Point(402, 532);
+            this.OpenB.Location = new System.Drawing.Point(721, 375);
             this.OpenB.Name = "OpenB";
             this.OpenB.Size = new System.Drawing.Size(95, 34);
             this.OpenB.TabIndex = 1;
@@ -99,7 +115,7 @@
             // DataFilled
             // 
             this.DataFilled.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.DataFilled.Location = new System.Drawing.Point(297, 44);
+            this.DataFilled.Location = new System.Drawing.Point(297, 52);
             this.DataFilled.Name = "DataFilled";
             this.DataFilled.Size = new System.Drawing.Size(200, 21);
             this.DataFilled.TabIndex = 5;
@@ -126,9 +142,10 @@
             this.FullNameBox.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FullNameBox.Location = new System.Drawing.Point(164, 90);
             this.FullNameBox.Name = "FullNameBox";
+            this.FullNameBox.ReadOnly = true;
             this.FullNameBox.Size = new System.Drawing.Size(333, 21);
             this.FullNameBox.TabIndex = 8;
-            this.FullNameBox.Text = "Заполните ФИО";
+            this.FullNameBox.TextChanged += new System.EventHandler(this.FullNameBox_TextChanged);
             // 
             // PriceNum
             // 
@@ -179,7 +196,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(167, 44);
+            this.label4.Location = new System.Drawing.Point(167, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 19);
             this.label4.TabIndex = 13;
@@ -211,10 +228,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.оПрограммеToolStripMenuItem,
+            this.базаДанныхToolStripMenuItem,
             this.выйтиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(828, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -232,6 +250,53 @@
             this.оПрограммеToolStripMenuItem.Text = "О приложении";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
+            // базаДанныхToolStripMenuItem
+            // 
+            this.базаДанныхToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.пользователиToolStripMenuItem,
+            this.файлToolStripMenuItem1});
+            this.базаДанныхToolStripMenuItem.Name = "базаДанныхToolStripMenuItem";
+            this.базаДанныхToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.базаДанныхToolStripMenuItem.Text = "База данных";
+            // 
+            // пользователиToolStripMenuItem
+            // 
+            this.пользователиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новыйToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.пользователиToolStripMenuItem.Name = "пользователиToolStripMenuItem";
+            this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.пользователиToolStripMenuItem.Text = "Пользователи";
+            // 
+            // новыйToolStripMenuItem
+            // 
+            this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.новыйToolStripMenuItem.Text = "Новый";
+            this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // файлToolStripMenuItem1
+            // 
+            this.файлToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem});
+            this.файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
+            this.файлToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.файлToolStripMenuItem1.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
             // выйтиToolStripMenuItem
             // 
             this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
@@ -239,11 +304,75 @@
             this.выйтиToolStripMenuItem.Text = "Выйти";
             this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
+            // UserName
+            // 
+            this.UserName.AutoSize = true;
+            this.UserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserName.Location = new System.Drawing.Point(499, 33);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(45, 19);
+            this.UserName.TabIndex = 18;
+            this.UserName.Text = "label5";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.loginDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.domainDataBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(503, 63);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(313, 301);
+            this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
+            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Пароль";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // domainDataBindingSource
+            // 
+            this.domainDataBindingSource.DataSource = typeof(Database.DomainData);
+            // 
+            // ExcelB
+            // 
+            this.ExcelB.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.ExcelB.Location = new System.Drawing.Point(519, 375);
+            this.ExcelB.Name = "ExcelB";
+            this.ExcelB.Size = new System.Drawing.Size(95, 34);
+            this.ExcelB.TabIndex = 20;
+            this.ExcelB.Text = "Excel";
+            this.ExcelB.UseVisualStyleBackColor = true;
+            this.ExcelB.Click += new System.EventHandler(this.ExcelB_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 578);
+            this.ClientSize = new System.Drawing.Size(828, 458);
+            this.Controls.Add(this.ExcelB);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.MinusB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -266,6 +395,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PriceNum)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domainDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +423,19 @@
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выйтиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem базаДанныхToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem пользователиToolStripMenuItem;
+        private System.Windows.Forms.Label UserName;
+        private System.Windows.Forms.ToolStripMenuItem новыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource domainDataBindingSource;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button ExcelB;
     }
 }
 

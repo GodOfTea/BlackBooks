@@ -8,16 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BlackBooks;
+using Database;
 
 namespace WindowsFormsApplication1
 {
     public partial class MainForm : Form
     {
-
-        public MainForm()
+        List<DomainData> users = new List<DomainData>();
+        string User;
+        public MainForm(string User)
         {
             InitializeComponent();
+            SerFile SerFile = new SerFile("Database.xml");
+            users = SerFile.LoadData();
+            UpdateDataGrid();
             MinusB.Enabled = false;
+            this.User = User;
+            UserName.Text = "Добро пожаловать " + User;
+            FullNameBox.Text = User;
+            if (User != "God")
+            {
+                файлToolStripMenuItem.Enabled = false;
+                базаДанныхToolStripMenuItem.Enabled = false;
+                OpenB.Enabled = false;
+                passwordDataGridViewTextBoxColumn.Visible = false;
+                ExcelB.Enabled = false;
+            }
+        }
+
+        private void UpdateDataGrid()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = users;
         }
 
         BookRequestDto GetModelfromUI()
@@ -162,6 +184,84 @@ namespace WindowsFormsApplication1
         {
             AboutFile form = new AboutFile();
             var opn = form.ShowDialog(this);
+        }
+
+        private void новыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddUser addUser = new AddUser();
+
+            if (addUser.ShowDialog() == DialogResult.OK)
+            {
+                DomainData dmd = addUser.DomainData;
+                dmd.Id = users.Count > 0 ? users.Max(i => i.Id) + 1 : 1;
+                users.Add(addUser.DomainData);
+                UpdateDataGrid();
+            }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                    DomainData dd = dataGridView1.SelectedRows[0].DataBoundItem as DomainData;
+                    users.Remove(dd);
+            }
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SerFile serFile = new SerFile("Database.xml");
+            serFile.Save(users);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DomainData dd = dataGridView1.SelectedRows[0].DataBoundItem as DomainData;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void FullNameBox_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ExcelB_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+            ExcelApp.get_Range("A1").Value = "Id";
+            ExcelApp.get_Range("B1").Value = "Login";
+            ExcelApp.get_Range("C1").Value = "Password";
+            ExcelApp.get_Range("E1").Value = "Данные за: " + DateTime.Now.ToShortDateString();
+
+            for (int i = 1; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells[j].GetType().Name == "DataGridViewComboBoxCell")
+                    {
+                        DataGridViewComboBoxCell DataC = new DataGridViewComboBoxCell();
+                        DataC = (DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[j];
+                        ExcelApp.Cells[i + 1, j + 1] = DataC.EditedFormattedValue;
+                    }
+                    else
+                    {
+                        ExcelApp.Cells[i + 1, j + 1] = dataGridView1.Rows[i].Cells[j].Value; 
+                    }
+                }
+            }
+            ExcelApp.Visible = true;
+            ExcelApp.UserControl = true;
         }
     }
 
